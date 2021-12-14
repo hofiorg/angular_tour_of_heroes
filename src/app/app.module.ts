@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -23,6 +23,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroSearchComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -35,7 +36,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
